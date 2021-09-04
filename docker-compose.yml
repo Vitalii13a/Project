@@ -1,0 +1,42 @@
+version: "3.2"
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: database
+    hostname: db
+    environment:
+      POSTGRES_PASSWORD: test123
+      POSTGRES_DB: testing
+#    ports:
+ #     - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+  frontend:
+    build:
+      context: ./web/
+      dockerfile: Dockerfile
+    command: npm start app.js
+    restart: always
+    container_name: frontend
+    depends_on:
+      - db
+    environment:
+      PORT: 3001
+      API_HOST: "http://backend:3000"
+    ports:
+      - "3001:3001"
+  backend:
+    build:
+      context: ./api/
+      dockerfile: Dockerfile
+    command: npm start app.js
+    restart: always
+    container_name: backend
+    depends_on:
+      - db
+    environment:
+      DB: 'postgressql://postgres:test123@db:5432/testing'
+      PORT: 3000
+    ports:
+      - "3000:3000"
