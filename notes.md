@@ -7,7 +7,7 @@ Packer is an open source tool for creating identical machine images for multiple
 - sudo apt-get update && sudo apt-get install packer
 - sudo cp /usr/bin/packer /usr/local/bin/packer
 
-
+#### https://github.com/btkrausen/hashicorp/tree/master/packer
 #### https://learn.hashicorp.com/tutorials/packer/get-started-install-cli 
 
     build           build image(s) from template
