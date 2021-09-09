@@ -10,6 +10,17 @@ Packer is an open source tool for creating identical machine images for multiple
 
 #### https://learn.hashicorp.com/tutorials/packer/get-started-install-cli 
 
+    build           build image(s) from template
+    console         creates a console for testing variable interpolation
+    fix             fixes templates from old versions of packer
+    fmt             Rewrites HCL2 config files to canonical format
+    hcl2_upgrade    transform a JSON template into an HCL2 configuration
+    init            Install missing plugins or upgrade plugins
+    inspect         see components of a template
+    validate        check that a template is valid
+    version         Prints the Packer version
+
+
 
 #### Installing Packer - Linux 
 - sudo yum install -y yum-utils
@@ -51,3 +62,6 @@ If packer is run with the -force flag the manifest file will be truncated automa
 
 You can specify manifest more than once and write each build to its own file, or write all builds to the same file. For simple builds manifest only needs to be specified once (see below) but you can also chain it together with other post-processors such as Docker and Artifice.
 
+
+
+    
