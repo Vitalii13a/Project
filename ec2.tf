@@ -1,8 +1,5 @@
-provider "aws" {
-  region = var.aws_region
-  access_key = var.access_key
-  secret_key = var.secret_key
-}
+
+
 
 #Create security group with firewall rules
 resource "aws_security_group" "security_node" {
@@ -96,3 +93,11 @@ resource "aws_alb_target_group_attachment" "tg_attachment" {
   target_group_arn = aws_lb_target_group.lb_target.arn
   target_id = aws_instance.myFirstInstance.id
 }
+
+
+provider "aws" {
+  region = var.aws_region
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
